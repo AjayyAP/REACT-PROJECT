@@ -86,7 +86,7 @@ const Insights = () => {
                                                 }}
                                             />
 
-                                            {/* Decorative blob */}
+                                            
                                             <div className={`position-absolute rounded-circle bg-${type.color}`} style={{ bottom: -20, right: -20, width: 80, height: 80, opacity: 0.1, filter: 'blur(30px)' }}></div>
                                         </motion.div>
                                     </Col>

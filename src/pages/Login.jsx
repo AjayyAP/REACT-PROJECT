@@ -25,11 +25,11 @@ const Login = () => {
 
     return (
         <Container className="d-flex justify-content-center align-items-center min-vh-100 position-relative overflow-hidden py-4 py-md-5">
-            {/* Background Decor */}
+            
             <div className="position-absolute top-0 start-0 w-100 h-100 overflow-hidden" style={{ zIndex: -1 }}>
                 <div className="position-absolute rounded-circle d-none d-md-block" style={{ top: '-10%', left: '-10%', width: '50vw', height: '50vw', background: 'radial-gradient(circle, rgba(99,102,241,0.2) 0%, transparent 70%)', filter: 'blur(60px)' }}></div>
                 <div className="position-absolute rounded-circle d-none d-md-block" style={{ bottom: '-10%', right: '-10%', width: '50vw', height: '50vw', background: 'radial-gradient(circle, rgba(217,70,239,0.2) 0%, transparent 70%)', filter: 'blur(60px)' }}></div>
-                {/* Mobile - Smaller blobs */}
+               
                 <div className="position-absolute rounded-circle d-md-none" style={{ top: '-5%', left: '-15%', width: '60vw', height: '60vw', background: 'radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%)', filter: 'blur(40px)' }}></div>
                 <div className="position-absolute rounded-circle d-md-none" style={{ bottom: '-5%', right: '-15%', width: '60vw', height: '60vw', background: 'radial-gradient(circle, rgba(217,70,239,0.15) 0%, transparent 70%)', filter: 'blur(40px)' }}></div>
             </div>

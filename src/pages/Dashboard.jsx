@@ -7,13 +7,12 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { useCountUp } from '../hooks/useCountUp';
 import { SkeletonCard, SkeletonChart } from '../components/skeletons/SkeletonLoader';
 
-// Assets (Replaced with Bootstrap Icons)
+
 
 const Dashboard = () => {
     const { expenses, loading } = useExpenses();
     const { user } = useAuth();
 
-    // Initial loading state
     const [isInitialLoad, setIsInitialLoad] = useState(true);
 
     useEffect(() => {
@@ -23,22 +22,21 @@ const Dashboard = () => {
 
     const isLoading = isInitialLoad || loading;
 
-    // --- Calculations ---
     const totalExpenses = expenses.reduce((acc, curr) => acc + (curr.type === 'expense' ? curr.amount : 0), 0);
     const totalIncome = expenses.reduce((acc, curr) => acc + (curr.type === 'income' ? curr.amount : 0), 0);
     const balance = totalIncome - totalExpenses;
 
-    // Animated counters
+
     const animatedIncome = useCountUp(totalIncome, 1500);
     const animatedExpenses = useCountUp(totalExpenses, 1500);
     const animatedBalance = useCountUp(Math.abs(balance), 1500);
 
-    // --- Recent Transactions (Last 5) ---
+
     const recentTransactions = expenses
         .sort((a, b) => new Date(b.date) - new Date(a.date))
         .slice(0, 5);
 
-    // --- Chart Data Preparation ---
+
     const getLast7Days = () => {
         const days = [];
         for (let i = 6; i >= 0; i--) {
@@ -70,7 +68,7 @@ const Dashboard = () => {
         };
     });
 
-    // Category Data
+
     const categoryData = expenses
         .filter(item => item.type === 'expense')
         .reduce((acc, curr) => {
@@ -87,7 +85,7 @@ const Dashboard = () => {
 
     return (
         <div className="pb-5">
-            {/* Header with Welcome Message */}
+
             <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-end mb-4 mb-md-5 animate-enter delay-100">
                 <div>
                     <h1 className="display-4 fw-bold text-gradient mb-1 text-responsive-xl">
@@ -105,7 +103,7 @@ const Dashboard = () => {
                 </div>
             </div>
 
-            {/* Metrics Cards Row */}
+
             <Row className="g-3 g-md-4 mb-4 mb-md-5 animate-enter delay-200">
                 <Col xs={12} sm={6} lg={4}>
                     {isLoading ? <SkeletonCard /> : (
@@ -165,11 +163,11 @@ const Dashboard = () => {
                 </Col>
             </Row>
 
-            {/* Main Layout: Charts & Transactions */}
+
             <Row className="g-3 g-md-4 animate-enter delay-300">
-                {/* Left Column: Charts */}
+
                 <Col lg={8}>
-                    {/* Activity Chart */}
+
                     <div className="glass-card p-3 p-md-4 mb-3 mb-md-4">
                         <div className="d-flex justify-content-between align-items-center mb-4">
                             <div>
@@ -207,7 +205,7 @@ const Dashboard = () => {
                                         </AreaChart>
                                     </ResponsiveContainer>
                                 </div>
-                                {/* Mobile Chart - Smaller */}
+
                                 <div style={{ height: '200px', width: '100%' }} className="d-md-none">
                                     <ResponsiveContainer>
                                         <AreaChart data={expenseData}>
@@ -240,7 +238,7 @@ const Dashboard = () => {
                         )}
                     </div>
 
-                    {/* Recent Transactions List (New) */}
+
                     <div className="glass-card p-3 p-md-4">
                         <div className="d-flex justify-content-between align-items-center mb-4">
                             <h5 className="text-white mb-0 fs-6 fs-md-5">Recent Transactions</h5>
@@ -274,7 +272,7 @@ const Dashboard = () => {
                     </div>
                 </Col>
 
-                {/* Right Column: Breakdown */}
+
                 <Col lg={4}>
                     <div className="glass-card p-3 p-md-4 h-100">
                         <h5 className="text-white mb-4 mb-md-5 fs-6 fs-md-5">Expense Breakdown</h5>
@@ -307,7 +305,7 @@ const Dashboard = () => {
                                 </div>
                             )}
 
-                            {/* Inner Circle Text */}
+
                             {!isLoading && categoryData.length > 0 && (
                                 <div className="position-absolute top-50 start-50 translate-middle text-center" style={{ marginTop: '-10px' }}>
                                     <small className="text-white-50 d-block text-uppercase ls-1" style={{ fontSize: '0.7rem' }}>Total</small>
@@ -331,7 +329,7 @@ const Dashboard = () => {
                 </Col>
             </Row>
 
-            {/* Quick Add FAB */}
+
             <div className="position-fixed bottom-0 end-0 p-3 p-md-4 animate-enter delay-400" style={{ zIndex: 100 }}>
                 <Link to="/dashboard/expenses" className="btn btn-primary rounded-circle shadow-lg d-flex align-items-center justify-content-center shimmer-effect touch-target" style={{ width: 56, height: 56 }}>
                     <i className="bi bi-plus-lg fs-5 fs-md-4 text-white"></i>

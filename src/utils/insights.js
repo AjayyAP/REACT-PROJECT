@@ -11,7 +11,7 @@ export const calculateInsights = (expenses) => {
     const totalExpenses = expenseItems.reduce((acc, curr) => acc + curr.amount, 0);
     const totalIncome = incomeItems.reduce((acc, curr) => acc + curr.amount, 0);
 
-    // 1. Spending vs Income
+    
     if (totalExpenses > totalIncome) {
         insights.push(`⚠️ **Alert**: You are spending more than you earn! Your expenses (₹${totalExpenses.toFixed(2)}) exceed your income (₹${totalIncome.toFixed(2)}).`);
     } else if (totalExpenses > (totalIncome * 0.8) && totalIncome > 0) {
@@ -20,7 +20,7 @@ export const calculateInsights = (expenses) => {
         insights.push(`✅ **Good Job**: You are living within your means. You have saved ₹${(totalIncome - totalExpenses).toFixed(2)}.`);
     }
 
-    // 2. Category Analysis
+   
     const categoryTotals = expenseItems.reduce((acc, curr) => {
         acc[curr.category] = (acc[curr.category] || 0) + curr.amount;
         return acc;
@@ -42,8 +42,7 @@ export const calculateInsights = (expenses) => {
         }
     }
 
-    // 3. Subscription/Recurring checks (Simple logic: Same amount same category multiple times)
-    // This is a bit complex for simple logic without more data, skipping for now to keep it simple and robust.
+    
 
     return insights;
 };

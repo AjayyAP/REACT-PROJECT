@@ -14,7 +14,7 @@ const ExpenseList = ({ expenses, onDelete, onEdit }) => {
 
     return (
         <div className="expense-list-container">
-            {/* Desktop View: Stylish Glass Table */}
+            
             <div className="d-none d-md-block table-responsive rounded-4 overflow-hidden">
                 <Table hover variant="dark" className="align-middle mb-0" style={{ backgroundColor: 'transparent' }}>
                     <thead className="bg-white bg-opacity-10 text-white text-uppercase" style={{ fontSize: '0.85rem', letterSpacing: '1px' }}>
@@ -64,7 +64,7 @@ const ExpenseList = ({ expenses, onDelete, onEdit }) => {
                 </Table>
             </div>
 
-            {/* Mobile View: Stacked Glass Cards */}
+           
             <div className="d-md-none d-flex flex-column gap-3">
                 <AnimatePresence>
                     {expenses.map((expense) => (

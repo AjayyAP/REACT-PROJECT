@@ -15,7 +15,7 @@ const ExpenseForm = ({ onSubmit, initialData = {}, onCancel }) => {
         if (initialData && Object.keys(initialData).length > 0) {
             setFormData({
                 ...initialData,
-                // Ensure date is formatted for input
+                
                 date: initialData.date ? initialData.date.split('T')[0] : new Date().toISOString().split('T')[0]
             });
         }

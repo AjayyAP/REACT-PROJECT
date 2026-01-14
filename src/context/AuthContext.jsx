@@ -24,15 +24,13 @@ export const AuthProvider = ({ children }) => {
         setLoading(true);
         setError(null);
         try {
-            // Mock login by querying users
+            
             const response = await api.get(`/users?email=${email}&password=${password}`);
             const users = response.data;
 
             if (users.length > 0) {
                 const authenticatedUser = users[0];
-                // Remove password before storing (optional but good practice)
-                // const { password, ...userWithoutPassword } = authenticatedUser; 
-                // In this simple mock, we just store what we get
+              
                 setUser(authenticatedUser);
                 localStorage.setItem('user', JSON.stringify(authenticatedUser));
                 toast.success(`Welcome back, ${authenticatedUser.name}!`);
@@ -55,7 +53,7 @@ export const AuthProvider = ({ children }) => {
         setLoading(true);
         setError(null);
         try {
-            // Check if user exists
+            
             const checkRes = await api.get(`/users?email=${email}`);
             if (checkRes.data.length > 0) {
                 setError('User already exists with this email');
@@ -67,7 +65,7 @@ export const AuthProvider = ({ children }) => {
                 id: uuidv4(),
                 name,
                 email,
-                password, // In a real app, never store plain text passwords!
+                password, 
                 createdAt: new Date().toISOString()
             };
 
@@ -97,8 +95,7 @@ export const AuthProvider = ({ children }) => {
 
     const updateBudget = async (amount) => {
         if (!user) return false;
-        // Don't set global loading here to avoid full page re-renders if not needed, 
-        // or keep it if we want to block interaction. Let's keep it simple.
+      
         try {
             const budgetValue = parseFloat(amount);
             await api.patch(`/users/${user.id}`, { budget: budgetValue });

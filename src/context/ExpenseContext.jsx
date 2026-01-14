@@ -14,7 +14,7 @@ export const ExpenseProvider = ({ children }) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    // Fetch expenses when user logs in
+    
     const fetchExpenses = useCallback(async () => {
         if (!user) {
             setExpenses([]);

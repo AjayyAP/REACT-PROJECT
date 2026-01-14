@@ -20,11 +20,11 @@ function App() {
       <ExpenseProvider>
         <Toaster position="top-center" toastOptions={{ duration: 3000 }} />
         <Routes>
-          {/* Public Routes */}
+
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
-          {/* Protected Routes */}
+
           <Route path="/dashboard" element={<ProtectedRoute />}>
             <Route element={<Layout />}>
               <Route index element={<Dashboard />} />
@@ -34,7 +34,7 @@ function App() {
             </Route>
           </Route>
 
-          {/* Fallback */}
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </ExpenseProvider>

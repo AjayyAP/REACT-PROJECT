@@ -19,7 +19,7 @@ const Register = () => {
     const navigate = useNavigate();
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    // Calculate password strength (Keep existing logic)
+
     useEffect(() => {
         if (!password) {
             setPasswordStrength({ score: 0, label: '', color: '' });
@@ -30,18 +30,18 @@ const Register = () => {
         let label = '';
         let color = '';
 
-        // Length check
+
         if (password.length >= 6) score += 25;
         if (password.length >= 8) score += 15;
         if (password.length >= 12) score += 10;
 
-        // Complexity checks
+
         if (/[a-z]/.test(password)) score += 15;
         if (/[A-Z]/.test(password)) score += 15;
         if (/[0-9]/.test(password)) score += 10;
         if (/[^a-zA-Z0-9]/.test(password)) score += 10;
 
-        // Determine label and color
+
         if (score < 40) {
             label = 'Weak';
             color = 'danger';
@@ -78,11 +78,11 @@ const Register = () => {
 
     return (
         <Container className="d-flex justify-content-center align-items-center min-vh-100 position-relative overflow-hidden py-4 py-md-5">
-            {/* Background Decor */}
+
             <div className="position-absolute top-0 start-0 w-100 h-100 overflow-hidden" style={{ zIndex: -1 }}>
                 <div className="position-absolute rounded-circle d-none d-md-block" style={{ top: '-10%', right: '-10%', width: '60vw', height: '60vw', background: 'radial-gradient(circle, rgba(6,182,212,0.15) 0%, transparent 70%)', filter: 'blur(80px)' }}></div>
                 <div className="position-absolute rounded-circle d-none d-md-block" style={{ bottom: '-10%', left: '-10%', width: '50vw', height: '50vw', background: 'radial-gradient(circle, rgba(239,68,68,0.15) 0%, transparent 70%)', filter: 'blur(80px)' }}></div>
-                {/* Mobile - Smaller blobs */}
+
                 <div className="position-absolute rounded-circle d-md-none" style={{ top: '-5%', right: '-15%', width: '60vw', height: '60vw', background: 'radial-gradient(circle, rgba(6,182,212,0.12) 0%, transparent 70%)', filter: 'blur(50px)' }}></div>
                 <div className="position-absolute rounded-circle d-md-none" style={{ bottom: '-5%', left: '-15%', width: '55vw', height: '55vw', background: 'radial-gradient(circle, rgba(239,68,68,0.12) 0%, transparent 70%)', filter: 'blur(50px)' }}></div>
             </div>

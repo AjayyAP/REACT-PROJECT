@@ -28,6 +28,27 @@
       "email": "akash@gmail.com",
       "password": "12345678",
       "createdAt": "2025-12-16T13:52:19.425Z"
+    },
+    {
+      "id": "09144e7e-abe8-4934-b090-5e674053bfde",
+      "name": "sourav",
+      "email": "sourav123@gmail.com",
+      "password": "00000000",
+      "createdAt": "2025-12-27T06:54:54.528Z"
+    },
+    {
+      "id": "1ba765b1-809f-45b8-b59c-13efbcdbc586",
+      "name": "raju",
+      "email": "raju123@gmail.com",
+      "password": "00000000",
+      "createdAt": "2026-01-09T15:50:13.478Z"
+    },
+    {
+      "id": "ba19487a-b5a2-4630-8d0b-eaccf547c79b",
+      "name": "ajayy",
+      "email": "ajayy123@gmail.com",
+      "password": "0000000000",
+      "createdAt": "2026-01-10T06:02:50.287Z"
     }
   ],
   "expenses": [
@@ -160,6 +181,126 @@
       "date": "2025-12-16",
       "type": "income",
       "createdAt": "2025-12-16T14:28:13.057Z"
+    },
+    {
+      "id": "c4df7b11-27fc-409d-b770-b73a6da35616",
+      "userId": "09144e7e-abe8-4934-b090-5e674053bfde",
+      "title": "salary",
+      "amount": 500000,
+      "category": "Salary",
+      "date": "2025-12-27",
+      "type": "income",
+      "createdAt": "2025-12-27T07:07:48.909Z"
+    },
+    {
+      "id": "6712cacc-4e11-4ad3-bd71-2a876ef38f60",
+      "userId": "09144e7e-abe8-4934-b090-5e674053bfde",
+      "title": "food",
+      "amount": 100000,
+      "category": "Food",
+      "date": "2025-12-27",
+      "type": "expense",
+      "createdAt": "2025-12-27T07:08:00.923Z"
+    },
+    {
+      "id": "e0c10483-3a18-4bb9-b0c7-b9f81bf6e10c",
+      "userId": "09144e7e-abe8-4934-b090-5e674053bfde",
+      "title": "fun",
+      "amount": 200000,
+      "category": "Entertainment",
+      "date": "2025-12-27",
+      "type": "expense",
+      "createdAt": "2025-12-27T07:08:16.747Z"
+    },
+    {
+      "id": "790744bc-78d3-4eb4-98db-ad0cd7a47806",
+      "userId": "09144e7e-abe8-4934-b090-5e674053bfde",
+      "title": "shop",
+      "amount": 150000,
+      "category": "Shopping",
+      "date": "2025-12-27",
+      "type": "expense",
+      "createdAt": "2025-12-27T07:08:39.654Z"
+    },
+    {
+      "id": "08db5b6c-dd5c-4121-adb1-12796b608488",
+      "userId": "1ba765b1-809f-45b8-b59c-13efbcdbc586",
+      "title": "salary",
+      "amount": 500000,
+      "category": "Salary",
+      "date": "2026-01-09",
+      "type": "income",
+      "createdAt": "2026-01-09T15:51:00.907Z"
+    },
+    {
+      "id": "aba61959-39fb-4fa1-a094-5cfea072d103",
+      "userId": "1ba765b1-809f-45b8-b59c-13efbcdbc586",
+      "title": "fun",
+      "amount": 200000,
+      "category": "Entertainment",
+      "date": "2026-01-08",
+      "type": "expense",
+      "createdAt": "2026-01-09T15:51:31.504Z"
+    },
+    {
+      "id": "ab9cab46-b358-4a4a-ac55-0b190793b614",
+      "userId": "1ba765b1-809f-45b8-b59c-13efbcdbc586",
+      "title": "food",
+      "amount": 150000,
+      "category": "Food",
+      "date": "2026-01-09",
+      "type": "expense",
+      "createdAt": "2026-01-09T15:52:19.960Z"
+    },
+    {
+      "id": "b78935ec-27ba-4fb7-8943-43963e857d46",
+      "userId": "1ba765b1-809f-45b8-b59c-13efbcdbc586",
+      "title": "shop",
+      "amount": 100000,
+      "category": "Shopping",
+      "date": "2026-01-09",
+      "type": "expense",
+      "createdAt": "2026-01-09T15:52:41.083Z"
+    },
+    {
+      "id": "e8da9731-97e5-49d9-98f0-8eab6bde01e7",
+      "userId": "1ba765b1-809f-45b8-b59c-13efbcdbc586",
+      "title": "health",
+      "amount": 40000,
+      "category": "Health",
+      "date": "2026-01-09",
+      "type": "expense",
+      "createdAt": "2026-01-09T15:53:20.016Z"
+    },
+    {
+      "id": "f27211b4-99a5-493f-8d39-7ed8662d1c65",
+      "userId": "ba19487a-b5a2-4630-8d0b-eaccf547c79b",
+      "title": "slary",
+      "amount": 500000,
+      "category": "Salary",
+      "date": "2026-01-10",
+      "type": "income",
+      "createdAt": "2026-01-10T06:03:11.496Z"
+    },
+    {
+      "id": "03d11fca-cbb2-4b3a-99dd-64c335a7659d",
+      "userId": "ba19487a-b5a2-4630-8d0b-eaccf547c79b",
+      "title": "fun",
+      "amount": 200000,
+      "category": "Entertainment",
+      "date": "2026-01-10",
+      "type": "expense",
+      "createdAt": "2026-01-10T06:03:36.646Z"
+    },
+    {
+      "id": "564d070a-0320-45de-bb2a-b42e7e470bf0",
+      "userId": "ba19487a-b5a2-4630-8d0b-eaccf547c79b",
+      "title": "food",
+      "amount": 200000,
+      "category": "Food",
+      "date": "2026-01-10",
+      "type": "expense",
+      "createdAt": "2026-01-10T06:03:48.544Z"
     }
   ]
 }
