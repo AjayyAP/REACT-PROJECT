@@ -1,6 +1,7 @@
 import { Container, Row, Col, Badge } from 'react-bootstrap';
 import { useExpenses } from '../context/ExpenseContext';
 import { calculateInsights } from '../utils/insights';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 
 const Insights = () => {
@@ -86,7 +87,7 @@ const Insights = () => {
                                                 }}
                                             />
 
-                                            
+
                                             <div className={`position-absolute rounded-circle bg-${type.color}`} style={{ bottom: -20, right: -20, width: 80, height: 80, opacity: 0.1, filter: 'blur(30px)' }}></div>
                                         </motion.div>
                                     </Col>

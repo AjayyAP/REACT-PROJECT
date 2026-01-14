@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useState, useEffect, useContext } from 'react';
 import { toast } from 'react-hot-toast';
 import api from '../api/axios';
@@ -24,13 +25,13 @@ export const AuthProvider = ({ children }) => {
         setLoading(true);
         setError(null);
         try {
-            
+
             const response = await api.get(`/users?email=${email}&password=${password}`);
             const users = response.data;
 
             if (users.length > 0) {
                 const authenticatedUser = users[0];
-              
+
                 setUser(authenticatedUser);
                 localStorage.setItem('user', JSON.stringify(authenticatedUser));
                 toast.success(`Welcome back, ${authenticatedUser.name}!`);
@@ -53,7 +54,7 @@ export const AuthProvider = ({ children }) => {
         setLoading(true);
         setError(null);
         try {
-            
+
             const checkRes = await api.get(`/users?email=${email}`);
             if (checkRes.data.length > 0) {
                 setError('User already exists with this email');
@@ -65,7 +66,7 @@ export const AuthProvider = ({ children }) => {
                 id: uuidv4(),
                 name,
                 email,
-                password, 
+                password,
                 createdAt: new Date().toISOString()
             };
 
@@ -95,7 +96,7 @@ export const AuthProvider = ({ children }) => {
 
     const updateBudget = async (amount) => {
         if (!user) return false;
-      
+
         try {
             const budgetValue = parseFloat(amount);
             await api.patch(`/users/${user.id}`, { budget: budgetValue });

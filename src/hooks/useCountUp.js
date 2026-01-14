@@ -12,7 +12,6 @@ export const useCountUp = (end, duration = 2000, delay = 0) => {
 
     useEffect(() => {
         if (end === 0) {
-            setCount(0);
             return;
         }
 
@@ -24,7 +23,7 @@ export const useCountUp = (end, duration = 2000, delay = 0) => {
                 if (!startTime) startTime = currentTime;
                 const progress = Math.min((currentTime - startTime) / duration, 1);
 
-            
+
                 const easeOut = 1 - Math.pow(1 - progress, 4);
 
                 setCount(Math.floor(easeOut * end));

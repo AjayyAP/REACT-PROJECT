@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useState, useContext, useEffect, useCallback } from 'react';
 import { toast } from 'react-hot-toast';
 import api from '../api/axios';
@@ -14,7 +15,7 @@ export const ExpenseProvider = ({ children }) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    
+
     const fetchExpenses = useCallback(async () => {
         if (!user) {
             setExpenses([]);
@@ -53,7 +54,7 @@ export const ExpenseProvider = ({ children }) => {
             setExpenses(prev => [response.data, ...prev]);
             toast.success('Expense added successfully');
             return true;
-        } catch (err) {
+        } catch {
             setError('Failed to add expense');
             toast.error('Failed to add expense');
             return false;
@@ -69,7 +70,7 @@ export const ExpenseProvider = ({ children }) => {
             setExpenses(prev => prev.filter(exp => exp.id !== id));
             toast.success('Expense deleted successfully');
             return true;
-        } catch (err) {
+        } catch {
             setError('Failed to delete expense');
             toast.error('Failed to delete expense');
             return false;
@@ -88,7 +89,7 @@ export const ExpenseProvider = ({ children }) => {
             setExpenses(prev => prev.map(exp => exp.id === id ? response.data : exp));
             toast.success('Expense updated successfully');
             return true;
-        } catch (err) {
+        } catch {
             setError('Failed to update expense');
             toast.error('Failed to update expense');
             return false;

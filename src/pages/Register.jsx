@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Form, Button, Container, Card, Alert, Spinner, InputGroup, ProgressBar } from 'react-bootstrap';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { HiMail, HiLockClosed, HiEye, HiEyeOff, HiUser, HiCheckCircle } from 'react-icons/hi';
 
@@ -13,35 +14,33 @@ const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [validationError, setValidationError] = useState('');
-    const [passwordStrength, setPasswordStrength] = useState({ score: 0, label: '', color: '' });
 
     const { register, error } = useAuth();
     const navigate = useNavigate();
     const [isSubmitting, setIsSubmitting] = useState(false);
 
 
-    useEffect(() => {
+    const passwordStrength = useMemo(() => {
         if (!password) {
-            setPasswordStrength({ score: 0, label: '', color: '' });
-            return;
+            return { score: 0, label: '', color: '' };
         }
 
         let score = 0;
         let label = '';
         let color = '';
 
-
+        // Length scoring
         if (password.length >= 6) score += 25;
         if (password.length >= 8) score += 15;
         if (password.length >= 12) score += 10;
 
-
+        // Character variety scoring
         if (/[a-z]/.test(password)) score += 15;
         if (/[A-Z]/.test(password)) score += 15;
         if (/[0-9]/.test(password)) score += 10;
         if (/[^a-zA-Z0-9]/.test(password)) score += 10;
 
-
+        // Determine strength label
         if (score < 40) {
             label = 'Weak';
             color = 'danger';
@@ -53,7 +52,7 @@ const Register = () => {
             color = 'success';
         }
 
-        setPasswordStrength({ score, label, color });
+        return { score, label, color };
     }, [password]);
 
     const handleSubmit = async (e) => {

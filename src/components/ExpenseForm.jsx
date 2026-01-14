@@ -1,25 +1,25 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
 const ExpenseForm = ({ onSubmit, initialData = {}, onCancel }) => {
-    const [formData, setFormData] = useState({
-        title: '',
-        amount: '',
-        category: 'Food',
-        date: new Date().toISOString().split('T')[0],
-        type: 'expense'
-    });
-    const [error, setError] = useState('');
-
-    useEffect(() => {
+    const getInitialFormData = () => {
         if (initialData && Object.keys(initialData).length > 0) {
-            setFormData({
+            return {
                 ...initialData,
-                
                 date: initialData.date ? initialData.date.split('T')[0] : new Date().toISOString().split('T')[0]
-            });
+            };
         }
-    }, [initialData]);
+        return {
+            title: '',
+            amount: '',
+            category: 'Food',
+            date: new Date().toISOString().split('T')[0],
+            type: 'expense'
+        };
+    };
+
+    const [formData, setFormData] = useState(getInitialFormData);
+    const [error, setError] = useState('');
 
     const handleChange = (e) => {
         const { name, value } = e.target;

@@ -1,6 +1,5 @@
 import { Table, Button, Badge } from 'react-bootstrap';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
 
 const ExpenseList = ({ expenses, onDelete, onEdit }) => {
     if (!expenses || expenses.length === 0) {
@@ -14,7 +13,7 @@ const ExpenseList = ({ expenses, onDelete, onEdit }) => {
 
     return (
         <div className="expense-list-container">
-            
+
             <div className="d-none d-md-block table-responsive rounded-4 overflow-hidden">
                 <Table hover variant="dark" className="align-middle mb-0" style={{ backgroundColor: 'transparent' }}>
                     <thead className="bg-white bg-opacity-10 text-white text-uppercase" style={{ fontSize: '0.85rem', letterSpacing: '1px' }}>
@@ -64,7 +63,7 @@ const ExpenseList = ({ expenses, onDelete, onEdit }) => {
                 </Table>
             </div>
 
-           
+
             <div className="d-md-none d-flex flex-column gap-3">
                 <AnimatePresence>
                     {expenses.map((expense) => (
@@ -84,7 +83,7 @@ const ExpenseList = ({ expenses, onDelete, onEdit }) => {
                                     <small className="text-white-50">{new Date(expense.date).toLocaleDateString()}</small>
                                 </div>
                                 <span className={`fw-bold fs-4 ${expense.type === 'income' ? 'text-success' : 'text-danger'}`}>
-                                    {expense.type === 'income' ? '+' : ''}₹{parseFloat(expense.amount)}
+                                    {expense.type === 'income' ? '+' : '-'}₹{parseFloat(expense.amount).toFixed(2)}
                                 </span>
                             </div>
 

@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useExpenses } from '../context/ExpenseContext';
 import { Card, Button, Container, Row, Col } from 'react-bootstrap';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 
 const TransactionDetails = () => {
@@ -76,7 +77,7 @@ const TransactionDetails = () => {
 
                         <div className="d-flex justify-content-between align-items-center text-white-50 small font-monospace">
                             <span>ID: {transaction.id.substring(0, 8)}...</span>
-                            <span>{new Date(transaction.createdAt || Date.now()).toLocaleTimeString()}</span>
+                            <span>{transaction.createdAt ? new Date(transaction.createdAt).toLocaleTimeString() : new Date(transaction.date).toLocaleTimeString()}</span>
                         </div>
                     </Card.Body>
                 </Card>
